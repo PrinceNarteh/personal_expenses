@@ -39,9 +39,41 @@ class HomeScreen extends StatelessWidget {
             Column(
                 children: transactions.map((transaction) {
               return Card(
-                child: Text(
-                  transaction.title,
-                ),
+                child: Row(children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 15,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.purple, width: 2),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      '\$${transaction.amount}',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.purple,
+                          fontSize: 20),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        transaction.title,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text('${transaction.date}')
+                    ],
+                  )
+                ]),
               );
             }).toList())
           ],
