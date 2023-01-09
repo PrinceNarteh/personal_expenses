@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:personal_expenses/models/transaction.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -70,7 +71,9 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 4,
                       ),
-                      Text('${transaction.date}')
+                      Text(
+                        DateFormat.yMMMd().format(transaction.date),
+                      )
                     ],
                   )
                 ]),
