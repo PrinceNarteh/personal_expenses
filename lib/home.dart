@@ -4,6 +4,8 @@ import 'package:personal_expenses/models/transaction.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   final List<Transaction> transactions = [
     Transaction(
@@ -37,6 +39,30 @@ class HomeScreen extends StatelessWidget {
                 child: Text("Chart"),
               ),
             ),
+            Card(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: const InputDecoration(labelText: "Title"),
+                      controller: titleController,
+                    ),
+                    TextField(
+                      decoration: const InputDecoration(labelText: "Title"),
+                      controller: amountController,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        print(titleController);
+                        print(amountController);
+                      },
+                      child: const Text("Add Transaction"),
+                    )
+                  ],
+                ),
+              ),
+            ),
             Column(
                 children: transactions.map((transaction) {
               return Card(
@@ -47,14 +73,14 @@ class HomeScreen extends StatelessWidget {
                       horizontal: 15,
                     ),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.purple, width: 2),
+                      border: Border.all(color: Colors.teal, width: 2),
                     ),
                     padding: const EdgeInsets.all(10),
                     child: Text(
                       '\$${transaction.amount}',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.purple,
+                          color: Colors.teal,
                           fontSize: 20),
                     ),
                   ),
