@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses/widgets/add_transaction.dart';
-import 'package:personal_expenses/widgets/chart.dart';
-import 'package:personal_expenses/widgets/transaction_list.dart';
+
+import './widgets/chart.dart';
+import './widgets/user_transaction.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,14 +11,19 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Personal Expenses"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          children: [
-            const Chart(),
-            AddTransaction(),
-            const TransactionList(),
+          children: const [
+            Chart(),
+            UserTransaction(),
           ],
         ),
       ),

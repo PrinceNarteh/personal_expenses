@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AddTransaction extends StatelessWidget {
-  AddTransaction({super.key});
+  final Function addTransaction;
+  AddTransaction(this.addTransaction, {super.key});
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
@@ -12,19 +13,22 @@ class AddTransaction extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
               decoration: const InputDecoration(labelText: "Title"),
               controller: titleController,
             ),
             TextField(
-              decoration: const InputDecoration(labelText: "Title"),
+              decoration: const InputDecoration(labelText: "Amount"),
               controller: amountController,
             ),
             TextButton(
               onPressed: () {
-                print(titleController);
-                print(amountController);
+                addTransaction(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
               },
               child: const Text("+ Add Transaction"),
             )
