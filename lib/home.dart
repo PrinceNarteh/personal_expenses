@@ -18,13 +18,15 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: const [
-            Chart(),
-            UserTransaction(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: const [
+              Chart(),
+              UserTransaction(),
+            ],
+          ),
         ),
       ),
     );
