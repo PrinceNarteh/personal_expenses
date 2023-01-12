@@ -13,7 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Personal Expenses",
       home: const HomeScreen(),
-      theme: ThemeData(primarySwatch: Colors.teal),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(fontFamily: 'Poppins'),
+        ),
+      ),
     );
   }
 }
