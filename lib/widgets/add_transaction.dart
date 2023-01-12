@@ -20,6 +20,8 @@ class _AddTransactionState extends State<AddTransaction> {
     if (title.isEmpty || amount <= 0) return;
 
     widget.addTransaction(title, amount);
+
+    Navigator.of(context).pop();
   }
 
   @override
